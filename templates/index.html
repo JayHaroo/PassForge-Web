@@ -11,6 +11,12 @@
     />
 </head>
 <body>
-    
+    <input type="radio" id="symbols" name="type" value="symbols">
+    <label for="symbols">Symbols</label><br>
+    <input type="radio" id="numbers" name="type" value="numbers">
+    <label for="numbers">Numbers</label><br>
+
+    <p id="password"></p>
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
 </body>
 </html>
