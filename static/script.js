@@ -11,6 +11,8 @@ const symbolCheckbox = document.querySelector("#symbols");
 const numberCheckbox = document.querySelector("#numbers");
 
 function generate() {
+    passwordField.textContent = "";
+    
     while (password.length < passlen) {
         if(symbolCheckbox.checked) {  
             password += saltcharsnms[Math.floor(Math.random() * saltchars.length)];
