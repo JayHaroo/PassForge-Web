@@ -7,6 +7,8 @@ const passlen = 12;
 var password = "";
 
 const passwordField = document.querySelector("#password");
+const symbolCheckbox = document.querySelector("#symbol");
+const numberCheckbox = document.querySelector("#number");
 
 function generate() {
     while (password.length < passlen) {
