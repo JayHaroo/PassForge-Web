@@ -11,7 +11,7 @@ const symbolCheckbox = document.querySelector("#symbols");
 const numberCheckbox = document.querySelector("#numbers");
 
 function generate() {
-    passwordField.textContent = "";
+    password = "";
 
     while (password.length < passlen) {
         if(symbolCheckbox.checked) {  
