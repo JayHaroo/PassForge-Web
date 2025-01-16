@@ -7,8 +7,8 @@ const passlen = 12;
 var password = "";
 
 const passwordField = document.querySelector("#password");
-const symbolCheckbox = document.querySelector("#symbol");
-const numberCheckbox = document.querySelector("#number");
+const symbolCheckbox = document.querySelector("#symbols");
+const numberCheckbox = document.querySelector("#numbers");
 
 function generate() {
     while (password.length < passlen) {
@@ -19,6 +19,7 @@ function generate() {
         }else{
             password += saltchars[Math.floor(Math.random() * saltchars.length)];
         }
-        passwordField.textContent = password;
+        
     }
+    passwordField.textContent = password;
 }
