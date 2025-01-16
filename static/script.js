@@ -1,6 +1,6 @@
 const saltchars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const saltcharsnm = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-const saltcharsnms = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+";
+const syms = "!@#$%^&*()_+";
+const nums = "0123456789";
 
 const passlen = 12;
 
@@ -12,12 +12,12 @@ const numberCheckbox = document.querySelector("#numbers");
 
 function generate() {
     passwordField.textContent = "";
-    
+
     while (password.length < passlen) {
         if(symbolCheckbox.checked) {  
-            password += saltcharsnms[Math.floor(Math.random() * saltchars.length)];
+            password  += syms[Math.floor(Math.random() * syms.length)] += saltchars[Math.floor(Math.random() * saltchars.length)];
         }else if(numberCheckbox.checked) {
-            password += saltcharsnm[Math.floor(Math.random() * saltchars.length)];
+            password += nums[Math.floor(Math.random() * nums.length)] += saltchars[Math.floor(Math.random() * saltchars.length)];
         }else{
             password += saltchars[Math.floor(Math.random() * saltchars.length)];
         }
