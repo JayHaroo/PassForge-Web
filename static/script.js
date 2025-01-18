@@ -16,7 +16,7 @@ const passlen8 = document.querySelector("#passlen12");
 const passlen16 = document.querySelector("#passlen16");
 
 function generate() {
-    var customSaltChars = customField.value;
+    var customSaltChars = customField.value.replace(/\s/g, '');
     
     if(passlen12.checked) {
         passlen = 12;
