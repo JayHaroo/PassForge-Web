@@ -11,9 +11,38 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-.form:not(input){
+#password{
+    font-size: 25px;
+}
+
+.label{
+    margin-top: 10px;
+    font-size: 50px;
+}
+
+.form{
     margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.form-radio label{
+    font-size: 20px;
+}
+
+button{
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+    border: 2px solid white;
+    background-color: black;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+button:hover{
+    background-color: white;
+    color: black;
 }
