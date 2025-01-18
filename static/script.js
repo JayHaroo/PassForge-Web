@@ -2,7 +2,7 @@ const saltchars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const syms = "!@#$%^&*()_+";
 const nums = "0123456789";
 
-const passlen = 12;
+var passlen = 0;
 
 var password = "";
 
@@ -10,7 +10,17 @@ const passwordField = document.querySelector("#password");
 const symbolCheckbox = document.querySelector("#symbols");
 const numberCheckbox = document.querySelector("#numbers");
 
+const passlen8 = document.querySelector("#passlen12");
+const passlen16 = document.querySelector("#passlen16");
+
 function generate() {
+    
+    if(passlen12.checked) {
+        passlen = 12;
+    }else if(passlen16.checked) {
+        passlen = 16;
+    }
+    
     password = "";
 
     while (password.length < passlen) {
