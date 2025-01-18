@@ -11,12 +11,12 @@ const symbolCheckbox = document.querySelector("#symbols");
 const numberCheckbox = document.querySelector("#numbers");
 const customCheckbox = document.querySelector("#custom");
 const customField = document.querySelector("#customField");
-var customSaltChars = customField.textContent;
 
 const passlen8 = document.querySelector("#passlen12");
 const passlen16 = document.querySelector("#passlen16");
 
 function generate() {
+    var customSaltChars = customField.value;
     
     if(passlen12.checked) {
         passlen = 12;
@@ -32,7 +32,12 @@ function generate() {
         }else if(numberCheckbox.checked) {
             password += nums[Math.floor(Math.random() * nums.length)] += saltchars[Math.floor(Math.random() * saltchars.length)];
         }else if(customCheckbox.checked) {
-            password += customSaltChars[Math.floor(Math.random() * customSaltChars.length)];
+            if(customSaltChars.length == 0) {
+                alert("Please enter custom characters");
+                return;
+            }else{
+                password += customSaltChars[Math.floor(Math.random() * customSaltChars.length)];
+            }
         }else{
             password += saltchars[Math.floor(Math.random() * saltchars.length)];
         }
