@@ -13,11 +13,19 @@
 <body>
     <div class="label">PassForge Web</div>
     <div class="form">
-        <div class="form-radio">
-            <input type="radio" id="symbols" name="type" value="symbols">
-            <label for="symbols">Symbols</label><br>
-            <input type="radio" id="numbers" name="type" value="numbers">
-            <label for="numbers">Numbers</label><br>
+        <div class="radio-group">
+            <div class="form-radio">
+                <input type="radio" id="symbols" name="type" value="symbols">
+                <label for="symbols">Symbols</label><br>
+                <input type="radio" id="numbers" name="type" value="numbers">
+                <label for="numbers">Numbers</label><br>
+            </div>
+            <div class="form-radio-len">
+                <input type="radio" id="length" name="length" value="12">
+                <label for="length">12</label><br>
+                <input type="radio" id="length" name="length" value="16">
+                <label for="length">16</label><br>
+            </div>
         </div>
         <p id="password"></p>
         <button onclick="generate()">Generate</button>
