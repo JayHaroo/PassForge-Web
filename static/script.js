@@ -49,3 +49,10 @@ function generate() {
     }
     passwordField.textContent = password;
 }
+
+function copy() {
+    var copyText = document.querySelector("#password");
+    copyText.select();
+    document.execCommand("copy");
+    alert("Copied the text: " + copyText.value);
+}
