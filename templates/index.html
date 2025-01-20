@@ -32,7 +32,10 @@
             </div>
         </div>
         <p id="password">Generated Password</p>
-        <button onclick="generate()">Generate</button>
+        <div class="buttons">
+            <button onclick="generate()">Generate</button>
+            <button>Copy to Clipboard</button>
+        </div>
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
