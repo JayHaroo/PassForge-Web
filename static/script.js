@@ -52,14 +52,26 @@ function generate() {
 }
 
 function copy() {
-  var copyText = document.querySelector("#password");
-  // Select the text field
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
-
-  // Copy the text inside the text field
-  navigator.clipboard.writeText(copyText.value);
-
-  // Alert the copied text
-  alert("Copied the text: " + copyText.value);
-}
+    var copyText = document.querySelector("#password");
+  
+    // Create a range and select the text content of the div
+    var range = document.createRange();
+    range.selectNodeContents(copyText);
+  
+    // Remove any existing selections and add the new one
+    var selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+  
+    // Copy the selected text to the clipboard
+    try {
+      navigator.clipboard.writeText(selection.toString());
+      alert("Copied the text: " + selection.toString());
+    } catch (err) {
+      alert("Failed to copy text. Please try again.");
+    }
+  
+    // Clear the selection
+    selection.removeAllRanges();
+  }
+  
