@@ -7,7 +7,6 @@ const nums = "0123456789";
 var passlen = 0;
 var password = "";
 
-
 // DOM Elements
 const passwordField = document.querySelector("#password");
 const symbolCheckbox = document.querySelector("#symbols");
@@ -20,39 +19,47 @@ const passlen16 = document.querySelector("#passlen16");
 /* this function is called when the generate button is clicked. 
    It generates a password based on the user's input */
 function generate() {
-    var customSaltChars = customField.value.replace(/\s/g, '');
-    
-    if(passlen12.checked) {
-        passlen = 12;
-    }else if(passlen16.checked) {
-        passlen = 16;
-    }
-    
-    password = "";
+  var customSaltChars = customField.value.replace(/\s/g, "");
 
-    while (password.length < passlen) {
-        if(symbolCheckbox.checked) {  
-            password  += syms[Math.floor(Math.random() * syms.length)] += saltchars[Math.floor(Math.random() * saltchars.length)];
-        }else if(numberCheckbox.checked) {
-            password += nums[Math.floor(Math.random() * nums.length)] += saltchars[Math.floor(Math.random() * saltchars.length)];
-        }else if(customCheckbox.checked) {
-            if(customSaltChars.length == 0) {
-                alert("Please enter custom characters");
-                return;
-            }else{
-                password += customSaltChars[Math.floor(Math.random() * customSaltChars.length)];
-            }
-        }else{
-            password += saltchars[Math.floor(Math.random() * saltchars.length)];
-        }
-        
+  if (passlen12.checked) {
+    passlen = 12;
+  } else if (passlen16.checked) {
+    passlen = 16;
+  }
+
+  password = "";
+
+  while (password.length < passlen) {
+    if (symbolCheckbox.checked) {
+      password += syms[Math.floor(Math.random() * syms.length)] +=
+        saltchars[Math.floor(Math.random() * saltchars.length)];
+    } else if (numberCheckbox.checked) {
+      password += nums[Math.floor(Math.random() * nums.length)] +=
+        saltchars[Math.floor(Math.random() * saltchars.length)];
+    } else if (customCheckbox.checked) {
+      if (customSaltChars.length == 0) {
+        alert("Please enter custom characters");
+        return;
+      } else {
+        password +=
+          customSaltChars[Math.floor(Math.random() * customSaltChars.length)];
+      }
+    } else {
+      password += saltchars[Math.floor(Math.random() * saltchars.length)];
     }
-    passwordField.textContent = password;
+  }
+  passwordField.textContent = password;
 }
 
 function copy() {
-    var copyText = document.querySelector("#password");
-    copyText.select();
-    document.execCommand("copy");
-    alert("Copied the text: " + copyText.value);
+  var copyText = document.querySelector("#password");
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+
+  // Alert the copied text
+  alert("Copied the text: " + copyText.value);
 }
