@@ -53,6 +53,8 @@ function generate() {
 
 function copy() {
     var copyText = document.querySelector("#password");
+    var divlist = document.querySelector(".list");
+    var copyText = divlist.querySelector(".history-list");
   
     // Create a range and select the text content of the div
     var range = document.createRange();
@@ -70,9 +72,12 @@ function copy() {
     } catch (err) {
       alert("Failed to copy text. Please try again.");
     }
-  
+    
     // Clear the selection
     selection.removeAllRanges();
+
+    copyText.innerHTML = "<li>" + password + "</li>";
+
   }
 
 
