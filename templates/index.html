@@ -12,30 +12,36 @@
 </head>
 <body>
     <div class="label">PassForge Web</div>
-    <div class="form">
-        <div class="radio-group">
-            <div class="form-radio">
-                <input type="radio" id="text" name="type" value="text" checked>
-                <label for="symbols">Text Only</label><br>
-                <input type="radio" id="symbols" name="type" value="symbols">
-                <label for="symbols">With Symbols</label><br>
-                <input type="radio" id="numbers" name="type" value="numbers">
-                <label for="numbers">With Numbers</label><br>
-                <input type="radio" id="custom" name="type">
-                <input type="text" id="customField" name="type" placeholder="Custom Character Set">
+    <div class="content">
+        <div class="form">
+            <div class="radio-group">
+                <div class="form-radio">
+                    <input type="radio" id="text" name="type" value="text" checked>
+                    <label for="symbols">Text Only</label><br>
+                    <input type="radio" id="symbols" name="type" value="symbols">
+                    <label for="symbols">With Symbols</label><br>
+                    <input type="radio" id="numbers" name="type" value="numbers">
+                    <label for="numbers">With Numbers</label><br>
+                    <input type="radio" id="custom" name="type">
+                    <input type="text" id="customField" name="type" placeholder="Custom Character Set">
+                </div>
+                <div class="form-radio-len">
+                    <input type="radio" id="passlen12" name="length" value="12" checked>
+                    <label for="length">12</label><br>
+                    <input type="radio" id="passlen16" name="length" value="16">
+                    <label for="length">16</label><br>
+                </div>
             </div>
-            <div class="form-radio-len">
-                <input type="radio" id="passlen12" name="length" value="12" checked>
-                <label for="length">12</label><br>
-                <input type="radio" id="passlen16" name="length" value="16">
-                <label for="length">16</label><br>
+            <p id="password">Generated Password</p>
+            <div class="buttons">
+                <button onclick="generate()">Generate</button>
+                <button onclick="copy()">Copy to Clipboard</button>
             </div>
         </div>
-        <p id="password">Generated Password</p>
-        <div class="buttons">
-            <button onclick="generate()">Generate</button>
-            <button onclick="copy()">Copy to Clipboard</button>
+        <div class="history">
+            <div class="label">Password History</div>
         </div>
+
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

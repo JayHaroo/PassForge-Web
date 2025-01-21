@@ -74,4 +74,5 @@ function copy() {
     // Clear the selection
     selection.removeAllRanges();
   }
-  
+
+

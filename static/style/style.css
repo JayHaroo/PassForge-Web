@@ -11,6 +11,16 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+.content{
+    display: flex;
+    justify-content: center;
+}
+
+.history .label{
+    font-size: 30px;
+    margin-top: 90px;
+}
+
 #password{
     font-size: 25px;
     padding: 20px;
@@ -24,6 +34,10 @@ body{
 }
 
 .form{
+    border-radius: 10px;
+    border: 2px solid white;
+    padding: 30px;
+    margin: 20px;
     margin-top: 100px;
     display: flex;
     flex-direction: column;
