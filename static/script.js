@@ -52,32 +52,34 @@ function generate() {
 }
 
 function copy() {
-    var copyText = document.querySelector("#password");
-    var divlist = document.querySelector(".list");
-    var copyText = divlist.querySelector(".history-list");
-  
-    // Create a range and select the text content of the div
-    var range = document.createRange();
-    range.selectNodeContents(copyText);
-  
-    // Remove any existing selections and add the new one
-    var selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-  
-    // Copy the selected text to the clipboard
-    try {
+  var copyText = document.querySelector("#password");
+  var divlist = document.querySelector(".list");
+  var copyHistoryList = divlist.querySelector(".history-list");
+
+  // Create a range and select the text content of the div
+  var range = document.createRange();
+  range.selectNodeContents(copyText);
+
+  // Remove any existing selections and add the new one
+  var selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  // Copy the selected text to the clipboard
+  try {
       navigator.clipboard.writeText(selection.toString());
       alert("Copied the text: " + selection.toString());
-    } catch (err) {
+
+      // Append the copied text to the history list
+      var newItem = document.createElement("li");
+      newItem.textContent = copyText.textContent;
+      copyHistoryList.appendChild(newItem);
+  } catch (err) {
       alert("Failed to copy text. Please try again.");
-    }
-    
-    // Clear the selection
-    selection.removeAllRanges();
-
-    copyText.innerHTML = "<li>" + password + "</li>";
-
   }
+  
+  // Clear the selection
+  selection.removeAllRanges();
+}
 
 
